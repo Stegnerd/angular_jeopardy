@@ -21,13 +21,13 @@ namespace AngularJeopardy.Models
         /// How may points is the question worth
         /// </summary>
         /// <remarks>
-        ///    Some questions from api do not have values so default to 100
+        ///    Some questions from api do not have values
         /// </remarks>
-        public int Value { get; set; } = 100;
+        public int? Value { get; set; }
 
         /// <summary>
-        /// Category that the question belongs to
+        /// Category identifier that the question belongs to
         /// </summary>
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
     }
 }

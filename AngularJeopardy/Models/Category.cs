@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace AngularJeopardy.Models
 {
     public class Category
@@ -16,5 +18,10 @@ namespace AngularJeopardy.Models
         /// How many questions are available in this category
         /// </summary>
         public int ClueCount { get; set; }
+
+        /// <summary>
+        /// List of questions related to the category
+        /// </summary>
+        public IList<Question> Questions { get; set; }
     }
 }

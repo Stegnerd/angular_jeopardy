@@ -1,7 +1,10 @@
+using AngularJeopardy.Api;
+using AngularJeopardy.Api.Interface;
+using AngularJeopardy.DatabaseContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +26,15 @@ namespace AngularJeopardy
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
+            
+            // Database Context
+            // implementation docs: https://docs.microsoft.com/en-us/ef/core/miscellaneous/configuring-dbcontext
+            services.AddDbContext<QuestionContext>(options => options.UseSqlite("Data Source=jeopardy.db"));
+            
+            // Api client
+            // adding scoped because under the hood uses httpwebrequest not httpclient
+            // https://stackoverflow.com/questions/49588205/should-restclient-be-singleton-or-new-for-every-request
+            services.AddScoped<IJeopardyClient, JeopardyClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
