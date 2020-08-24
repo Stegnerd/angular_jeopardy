@@ -15,7 +15,7 @@ code {
 }
 
 .jeopardy-format {
-  font-family: jeopardy;
+  font-family: jeopardy, sans-serif;
 }
 
 .btn-primary {
