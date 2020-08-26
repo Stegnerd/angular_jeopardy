@@ -1,9 +1,24 @@
 
+.home-container {
+/*  display: flex;
+  flex-direction: column;*/
+  font-family: jeopardy, sans-serif;
+/*  align-items: center;
+  justify-content: center;*/
+}
+
 .title {
-  display: flex;
-  flex-direction: column;
+/*  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-family: jeopardy, sans-serif;
+  text-align: center;*/
+  /*padding-top: 50%;*/
+/*  flex: 1 1 50vh;*/
+  font-size: 100px;
+  color: gold;
+}
+
+.button {
+/*  align-content: center;
+  text-align: center;*/
 }
