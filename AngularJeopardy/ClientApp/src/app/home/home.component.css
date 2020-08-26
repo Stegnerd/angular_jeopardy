@@ -1,10 +1,11 @@
 
-.home-container {
+.home-container * {
 /*  display: flex;
   flex-direction: column;*/
-  font-family: jeopardy, sans-serif;
 /*  align-items: center;
   justify-content: center;*/
+
+  font-family: jeopardy, sans-serif;
 }
 
 .title {
@@ -16,9 +17,11 @@
 /*  flex: 1 1 50vh;*/
   font-size: 100px;
   color: gold;
+
 }
 
 .button {
 /*  align-content: center;
   text-align: center;*/
+
 }
