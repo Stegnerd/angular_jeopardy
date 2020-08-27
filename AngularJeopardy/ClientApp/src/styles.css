@@ -9,6 +9,18 @@ code {
   color: #e01a76;
 }
 
+html, body {
+}
+
+@font-face {
+  font-family: jeopardy;
+  src: url('assets/fonts/jeopardy.ttf') format('truetype');
+}
+
+.jeopardy-format {
+  font-family: jeopardy, sans-serif;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

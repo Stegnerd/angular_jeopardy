@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RestSharp;
 
 namespace AngularJeopardy
 {
@@ -34,6 +35,7 @@ namespace AngularJeopardy
             // Api client
             // adding scoped because under the hood uses httpwebrequest not httpclient
             // https://stackoverflow.com/questions/49588205/should-restclient-be-singleton-or-new-for-every-request
+            services.AddTransient<IRestClient, RestClient>();
             services.AddScoped<IJeopardyClient, JeopardyClient>();
         }
 
