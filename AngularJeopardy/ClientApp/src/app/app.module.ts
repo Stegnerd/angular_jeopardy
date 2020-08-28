@@ -27,7 +27,7 @@ import { CategoryselectComponent } from './components/categoryselect/categorysel
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
+      { path: 'select', component: CategoryselectComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
     FlexLayoutModule
