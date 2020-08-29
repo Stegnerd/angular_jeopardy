@@ -49,12 +49,14 @@ namespace AngularJeopardy.Services
         {
             var dictionary = new Dictionary<int, Question>();
 
-            var incrementer = 100;
+            var incrementer = 200;
+
+            var valueOrderedQuestions = potentialQuestions.OrderBy(_ => _.Value);
             
-            foreach (var question in potentialQuestions)
+            foreach (var question in valueOrderedQuestions)
             {
                 // only need 5 questions so stop iteration
-                if (incrementer == 600)
+                if (incrementer == 1200)
                 {
                     break;
                 }
@@ -66,13 +68,13 @@ namespace AngularJeopardy.Services
                 }
                 
                 // if question matches value looking for or if null
-                if (question.Value == incrementer)
+                if (question.Value == incrementer )
                 {
                     // TODO Filter by context (answered before?) as well
                     if (!dictionary.ContainsKey(incrementer))
                     {
                         dictionary.Add(incrementer, question);
-                        incrementer++;
+                        incrementer += 200;
                     }
                 }
             }
