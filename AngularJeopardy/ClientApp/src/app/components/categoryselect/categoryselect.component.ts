@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {JeopardyService} from "../../services/jeopardy.service";
+import {Category} from "../../models/category";
+
+
 @Component({
   selector: 'app-categoryselect',
   templateUrl: './categoryselect.component.html',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryselectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private jeopardyService: JeopardyService) { }
+
+  categories: Category[] = [];
 
   ngOnInit(): void {
+    this.getCategories()
+  }
+
+  getCategories(): void {
+    this.jeopardyService.getCategories().subscribe((categories) => (this.categories = categories));
   }
 
 }
