@@ -23,4 +23,10 @@ export class CategoryselectComponent implements OnInit {
     this.jeopardyService.getCategories().subscribe((categories) => (this.categories = categories));
   }
 
+  storeData(categoryId: number, questionId: number): void {
+    const category = this.categories.find(_ => _.id === categoryId);
+    const question = category.questions.find(_ => _.id === questionId);
+
+    this.jeopardyService.question = question;
+  }
 }
