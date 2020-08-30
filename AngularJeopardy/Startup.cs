@@ -1,6 +1,8 @@
 using AngularJeopardy.Api;
 using AngularJeopardy.Api.Interface;
 using AngularJeopardy.DatabaseContext;
+using AngularJeopardy.Services;
+using AngularJeopardy.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -37,6 +39,7 @@ namespace AngularJeopardy
             // https://stackoverflow.com/questions/49588205/should-restclient-be-singleton-or-new-for-every-request
             services.AddTransient<IRestClient, RestClient>();
             services.AddScoped<IJeopardyClient, JeopardyClient>();
+            services.AddScoped<IJeopardyService, JeopardyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

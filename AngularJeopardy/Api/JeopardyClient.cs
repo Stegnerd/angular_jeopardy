@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AngularJeopardy.Api.Interface;
 using AngularJeopardy.Models;
@@ -23,28 +24,32 @@ namespace AngularJeopardy.Api
         {
             var request = new RestRequest("categories", Method.GET).AddParameter("count", count).AddParameter("offset", offset);
 
-            var response = await _client.ExecuteAsync<List<Category>>(request);
+            var response = await _client.ExecuteAsync(request);
 
             if (!response.IsSuccessful)
             {
                 throw new Exception(Constants.GetCategoryError, response.ErrorException);
             }
 
-            return response.Data;
+            var data = JsonSerializer.Deserialize<List<Category>>(response.Content);
+
+            return data;
         }
 
         public async Task<List<Question>> GetQuestionByCategoryAsync(int categoryId)
         {
             var request = new RestRequest("clues", Method.GET).AddParameter("category", categoryId);
 
-            var response = await _client.ExecuteAsync<List<Question>>(request);
+            var response = await _client.ExecuteAsync(request);
 
             if (!response.IsSuccessful)
             {
                 throw new Exception(Constants.GetQuestionError, response.ErrorException);
             }
-            
-            return response.Data;
+
+            var data = JsonSerializer.Deserialize<List<Question>>(response.Content);
+
+            return data;
         }
     }
 }

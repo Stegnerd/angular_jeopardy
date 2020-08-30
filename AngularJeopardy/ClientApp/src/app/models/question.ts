@@ -1,7 +1,7 @@
 export interface Question {
   id: number,
-  text: string,
+  question: string,
   answer: string,
   value: number,
-  categoryId: number
+  category_id: number
 }

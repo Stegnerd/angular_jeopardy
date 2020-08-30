@@ -18,7 +18,7 @@ export class JeopardyService {
    * Gets a list of Categories
    */
   getCategories(): Observable<Category[]> {
-    return this.client.get<Category[]>(`${this.apiUrl}/jeopardy`);
+     return this.client.get<Category[]>(this.apiUrl + 'jeopardy');
   }
 
 }

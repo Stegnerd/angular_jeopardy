@@ -2,7 +2,7 @@ import {Question} from "./question";
 
 export interface Category {
   id: number,
-  name: string,
-  clueCount: number,
+  title: string,
+  clues_count: number,
   questions: Question[]
 }
