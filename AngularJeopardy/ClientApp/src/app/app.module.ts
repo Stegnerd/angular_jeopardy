@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CategoryselectComponent } from './components/categoryselect/categoryselect.component';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CategoryselectComponent } from './components/categoryselect/categorysel
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    CategoryselectComponent
+    CategoryselectComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
