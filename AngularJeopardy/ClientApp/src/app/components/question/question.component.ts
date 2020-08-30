@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Question} from "../../models/question";
+import {JeopardyService} from "../../services/jeopardy.service";
 
 @Component({
   selector: 'app-question',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private jeopardyService: JeopardyService) { }
+
+  question: Question = null;
 
   ngOnInit(): void {
+    this.question = this.jeopardyService.question
   }
 
 }
