@@ -1,10 +1,30 @@
 
-{{question.question}}
+<div>
+  <div [hidden]="submitted">
+    <!--
+      use the #jeopardyForm="ngForm" to create a reference to the form.
+      That way you can reference form validation on the form itself.
+      ngSubmit is a form directive to control form submission
+    -->
+    <form (ngSubmit)="onSubmit()" #jeopardyForm="ngForm">
+      <div class="form-group">
+        <label for="questionText">Question: </label>
+        <span id="questionText">{{question.question}}</span>
+      </div>
+      <div class="form-group">
+        <!--  the for property is linked to the id of another element and acts like you click on the element itself -->
+        <label for="answer">Answer</label>
+        <input type="text" class="form-control" id="answer" required [(ngModel)]="question.userAnswer" name="answer">
+      </div>
 
-{{question.answer}}
+      <!-- uses the reference to the form above to grab values from it -->
+      <button type="submit" class="btn btn-success" [disabled]="!jeopardyForm.form.valid">Submit</button>
+    </form>
+  </div>
 
-{{question.value}}
+  <div [hidden]="!submitted">
+    <span>Thanks for your submission!</span>
+  </div>
 
-
-
+</div>
 

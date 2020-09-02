@@ -13,8 +13,14 @@ export class QuestionComponent implements OnInit {
 
   question: Question = null;
 
+  submitted: boolean = false;
+
   ngOnInit(): void {
     this.question = this.jeopardyService.question
+  }
+
+  onSubmit() {
+    this.submitted = true
   }
 
 }
