@@ -14,7 +14,7 @@
       <div class="form-group">
         <!--  the for property is linked to the id of another element and acts like you click on the element itself -->
         <label for="answer">Answer</label>
-        <input type="text" class="form-control" id="answer" required [(ngModel)]="question.userAnswer" name="answer">
+        <input type="text" class="form-control" id="answer" required [(ngModel)]="userAnswer" name="answer">
       </div>
 
       <!-- uses the reference to the form above to grab values from it -->
@@ -23,7 +23,12 @@
   </div>
 
   <div [hidden]="!submitted">
-    <span>Thanks for your submission!</span>
+    <div>
+      <span *ngIf="result === true; else wrong_answer">Good job! you answered correctly!</span>
+      <ng-template #wrong_answer>
+        <span>Incorrect! You answered {{userAnswer}} and the correct answer was {{question.answer}}</span>
+      </ng-template>
+    </div>
   </div>
 
 </div>

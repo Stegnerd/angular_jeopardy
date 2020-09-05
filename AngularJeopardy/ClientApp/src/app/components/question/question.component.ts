@@ -13,7 +13,11 @@ export class QuestionComponent implements OnInit {
 
   question: Question = null;
 
+  userAnswer: string = "";
+
   submitted: boolean = false;
+
+  result: boolean = false
 
   ngOnInit(): void {
     this.question = this.jeopardyService.question
@@ -21,6 +25,10 @@ export class QuestionComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true
+    this.result = this.validate()
   }
 
+  validate() {
+    return this.userAnswer.toLocaleLowerCase() === this.question.answer.toLocaleLowerCase();
+  }
 }
