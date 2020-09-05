@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CategoryselectComponent } from './components/categoryselect/categoryselect.component';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { CategoryselectComponent } from './components/categoryselect/categorysel
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
-    CategoryselectComponent
+    CategoryselectComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,8 +27,8 @@ import { CategoryselectComponent } from './components/categoryselect/categorysel
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'select', component: CategoryselectComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'categories', component: CategoryselectComponent },
+      { path: 'question', component: QuestionComponent },
     ]),
     FlexLayoutModule
   ],
