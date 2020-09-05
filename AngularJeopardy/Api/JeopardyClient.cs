@@ -13,16 +13,21 @@ namespace AngularJeopardy.Api
     public class JeopardyClient : IJeopardyClient
     {
         private readonly IRestClient _client;
+        private readonly int _maxCategoryId;
+        private readonly int _categoryRetrievalLimit;
 
         public JeopardyClient(IConfiguration configuration, IRestClient client)
         {
             _client = client;
             _client.BaseUrl = new Uri(configuration.GetValue<string>("ApiEndpoint"));
+            
+            _maxCategoryId = configuration.GetValue<int>("MaxCategoryId");
+            _categoryRetrievalLimit = configuration.GetValue<int>("CategoryRetrievalLimit");
         }
         
-        public async  Task<List<Category>> GetCategoriesAsync(int count = 5, int offset = 0)
+        public async  Task<List<Category>> GetCategoriesAsync()
         {
-            var request = new RestRequest("categories", Method.GET).AddParameter("count", count).AddParameter("offset", offset);
+            var request = new RestRequest("categories", Method.GET).AddParameter("count", _categoryRetrievalLimit).AddParameter("offset", GetRandomOffset());
 
             var response = await _client.ExecuteAsync(request);
 
@@ -51,5 +56,15 @@ namespace AngularJeopardy.Api
 
             return data;
         }
+
+        #region Private Methods
+
+        private int GetRandomOffset()
+        {
+            var random = new Random();
+            return random.Next(0, _maxCategoryId);
+        }
+
+        #endregion Private Methods
     }
 }
