@@ -9,10 +9,8 @@ namespace AngularJeopardy.Api.Interface
         /// <summary>
         /// Gets a list of categories from the api endpoint
         /// </summary>
-        /// <param name="count">How many <see cref="Category"/> to  get</param>
-        /// <param name="offset">Starting point in list to get <see cref="Category"/></param>
         /// <returns>A List of <see cref="Category"/></returns>
-        Task<List<Category>> GetCategoriesAsync(int count = 5, int offset = 0);
+        Task<List<Category>> GetCategoriesAsync();
 
         /// <summary>
         /// Gets a list of questions from the api endpoint based on a category
