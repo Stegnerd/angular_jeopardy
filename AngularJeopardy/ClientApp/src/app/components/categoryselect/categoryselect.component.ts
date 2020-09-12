@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {JeopardyService} from "../../services/jeopardy.service";
 import {Category} from "../../models/category";
@@ -25,8 +25,6 @@ export class CategoryselectComponent implements OnInit {
 
   storeData(categoryId: number, questionId: number): void {
     const category = this.categories.find(_ => _.id === categoryId);
-    const question = category.questions.find(_ => _.id === questionId);
-
-    this.jeopardyService.question = question;
+    this.jeopardyService.question = category.questions.find(_ => _.id === questionId);
   }
 }

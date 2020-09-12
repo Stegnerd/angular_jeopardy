@@ -8,7 +8,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { CategoryselectComponent } from './components/categoryselect/categoryselect.component';
 import { QuestionComponent } from './components/question/question.component';
 
@@ -17,7 +16,6 @@ import { QuestionComponent } from './components/question/question.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     CategoryselectComponent,
     QuestionComponent
   ],
